@@ -3,7 +3,7 @@ const app = express();
 
 //Basic page
 app.get("/", function(req, res) {
-   res.end("<h1>Hello World</h1>");
+   //Call the logRequest function
    next();
 });
 
