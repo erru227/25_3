@@ -9,7 +9,7 @@ const logRequest = function(req, res, next) {
 };
 
 //Basic page
-app.get("/", function(req, res, next) {
+app.get("/", logRequest, function(req, res, next) {
    //Call the logRequest function
    next();
 });
