@@ -3,7 +3,7 @@ const app = express();
 const web_files = express.static("public");
 
 const logRequest = function(req, res, next) {
-   res.type("html");  // tell the browser the content is HTML
+   res.type("html");
    res.write('<p id="output">Request: ' + req.method + " for " + req.path + "</p>");
    next();
 };
