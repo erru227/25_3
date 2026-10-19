@@ -9,8 +9,9 @@ const logRequest = function(req, res, next) {
 
 app.use(logRequest);
 
-app.get("/hello", function(req, res) {
-   es.send("<h1>Hello, Express!</h1>" + '<p id="output">' + req.logMessage + "</p>");
+//Use the basic page
+app.get("/", function(req, res) {
+   res.send("<h1>Hello, Express!</h1>" + '<p id="output">' + req.logMessage + "</p>");
 });
 
 app.listen(3000, function() {
