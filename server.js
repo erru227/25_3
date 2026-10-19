@@ -8,9 +8,10 @@ const logRequest = function(req, res, next) {
    next();
 };
 
-app.use(logRequest);
-
+//First the web page files
 app.use(web_files);
+//Then the middleware function
+app.use(logRequest);
 
 //Basic page
 app.get("/", function(req, res) {
