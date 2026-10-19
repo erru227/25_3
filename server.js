@@ -1,12 +1,5 @@
 const express = require("express");
 const app = express();
-
-//Basic page
-app.get("/", function(req, res) {
-   //Call the logRequest function
-   next();
-});
-
 const web_files = express.static("public");
 
 const logRequest = function(req, res, next) {
@@ -15,7 +8,13 @@ const logRequest = function(req, res, next) {
    next();
 };
 
-//First the web page files
+//Basic page
+app.get("/", function(req, res, next) {
+   //Call the logRequest function
+   next();
+});
+
+//First the web page files (after using baseline updates)
 app.use(web_files);
 //Then the middleware function
 app.use(logRequest);
