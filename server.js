@@ -8,11 +8,8 @@ const logRequest = function(req, res, next) {
    next();
 };
 
-//Basic page
-app.get("/", logRequest, function(req, res, next) {
-   //Call the logRequest function
-   next();
-});
+//Basic page, after calling middleware
+app.get("/", logRequest);
 
 //First the web page files (after using baseline updates)
 app.use(web_files);
