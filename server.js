@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const web_files = express.static("public");
 
 const logRequest = function(req, res, next) {
    res.type("html");  // tell the browser the content is HTML
@@ -7,16 +8,10 @@ const logRequest = function(req, res, next) {
    next();
 };
 
-//Basic page, after calling middleware
-app.get("/", logRequest);
-
-const web_files = express.static("public");
-
 //First the web page files (after using baseline updates)
 app.use(web_files);
 //Then the middleware function
 app.use(logRequest);
-
 
 app.get("/hello", function(req, res) {
    res.end("<h1>Hello, Express!</h1>");
