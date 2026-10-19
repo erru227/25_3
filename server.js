@@ -1,17 +1,28 @@
 const express = require("express");
 const app = express();
+const web_files = express.static("public");
 
 const logRequest = function(req, res, next) {
-   //console.log(`Request: ${req.method} for ${req.path}`);
-   req.logMessage = "Request: "+req.method+" for "+req.path;
+   res.type("html");  // tell the browser the content is HTML
+   res.write('<p id="output">Request: ' + req.method + " for " + req.path + "</p>");
    next();
 };
 
 app.use(logRequest);
 
-//Use the basic page
+app.use(web_files);
+
+//Basic page
 app.get("/", function(req, res) {
-   res.send("<h1>Hello, Express!</h1>" + '<p id="output">' + req.logMessage + "</p>");
+   res.end("<h1>Hello World</h1>");
+});
+
+app.get("/hello", function(req, res) {
+   res.end("<h1>Hello, Express!</h1>");
+});
+
+app.post("/goodbye", function(req, res) {
+   res.end('<head><link rel="stylesheet" href="/style.css"></head> <body><h1>Goodbye, Express!</h1></body>');
 });
 
 app.listen(3000, function() {
