@@ -1,5 +1,12 @@
 const express = require("express");
 const app = express();
+
+//Basic page
+app.get("/", function(req, res) {
+   res.end("<h1>Hello World</h1>");
+   next();
+});
+
 const web_files = express.static("public");
 
 const logRequest = function(req, res, next) {
@@ -13,10 +20,6 @@ app.use(web_files);
 //Then the middleware function
 app.use(logRequest);
 
-//Basic page
-app.get("/", function(req, res) {
-   res.end("<h1>Hello World</h1>");
-});
 
 app.get("/hello", function(req, res) {
    res.end("<h1>Hello, Express!</h1>");
