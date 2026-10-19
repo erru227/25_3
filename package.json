@@ -1,0 +1,16 @@
+{
+    "name": "express-third-example",
+    "version": "1.0.0",
+    "description": "Used to showcase more express functionality",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "author": "Your Name",
+    "dependencies": {
+        "express": "^5.3.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "Link Here"
+    }
+}
